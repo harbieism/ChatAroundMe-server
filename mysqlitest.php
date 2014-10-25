@@ -3,10 +3,10 @@ include 'include/connect.php';
 
 $sql='SELECT Email FROM RegisteredUser';
  
-$rs=$conn->query($sql);
+$rs=$mysqli->query($sql);
  
 if($rs === false) {
-  trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
+  trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $mysqli->error, E_USER_ERROR);
 } else {
   $rows_returned = $rs->num_rows;
 }
