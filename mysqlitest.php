@@ -1,18 +1,19 @@
 <?php
 include 'include/connect.php';
 
-$sql = <<<SQL
-    SELECT *
-    FROM `RegisteredUser`
-SQL;
-
-
-if(!$result = $db->query($sql)){
-    die('There was an error running the query [' . $db->error . ']');
+$sql='SELECT Email FROM RegisteredUser';
+ 
+$rs=$conn->query($sql);
+ 
+if($rs === false) {
+  trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
+} else {
+  $rows_returned = $rs->num_rows;
 }
 
-while($row = $result->fetch_assoc()){
-    echo $row['Email'] . '<br />';
+$rs->data_seek(0);
+while($row = $rs->fetch_assoc()){
+    echo $row['col1'] . '<br>';
 }
 
 ?> 
