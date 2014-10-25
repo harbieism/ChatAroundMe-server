@@ -1,8 +1,8 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "bigguccisosa", "chatstorm", 3306);
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+$conn = new conn("localhost", "root", "bigguccisosa", "chatstorm", 3306);
+if ($conn->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $conn->connect_errno . ") " . $conn->connect_error;
 }
-echo $mysqli->host_info . "\n";
+echo $conn->host_info . "\n";
 
 ?>
